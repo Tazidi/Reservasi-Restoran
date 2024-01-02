@@ -20,11 +20,11 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
-        <div class="border rounded-md p-6" style="max-width: 500px; width: 100%; height: 450px;">
+        <div class="border rounded-md p-6" style="max-width: 500px; width: 100%; height: 550px;">
             <div class="flex items-center justify-center mb-4">
                 <a
-                    class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 md:text-3xl hover:text-green-400">
-                    Registration
+                    class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-400 md:text-3xl">
+                    Restoran ARKI
                 </a>
             </div>
             <form method="POST" action="{{ route('register') }}">
@@ -65,16 +65,15 @@
 
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 </div>
-
+                <div class="mb-4 mt-7">
+                    <button type="submit" class="w-full"
+                        style="padding: 12px 16px; background-color: #8495f5; color: #fff; border: none; border-radius: 4px; cursor: pointer;">{{ __('Registrasi') }}</button>
+                </div>
                 <div class="flex items-center justify-end mt-4">
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         href="{{ route('login') }}">
                         {{ __('Already registered?') }}
                     </a>
-
-                    <x-primary-button class="ml-4">
-                        {{ __('Register') }}
-                    </x-primary-button>
                 </div>
             </form>
         </div>

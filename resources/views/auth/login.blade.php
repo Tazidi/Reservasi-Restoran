@@ -22,8 +22,8 @@
     <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
         <div class="border rounded-md p-6" style="max-width: 500px; width: 100%; height: 450px;">
             <div class="flex items-center justify-center mb-4">
-                <a class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 md:text-3xl hover:text-green-400">
-                    MeatGuest
+                <a class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-400 md:text-3xl">
+                    Restoran ARKI
                 </a>
             </div>
             
@@ -57,14 +57,9 @@
                 </div>
                 <div class="mb-4">
                     <button type="submit" class="w-full"
-                        style="padding: 12px 16px; background-color: #3490dc; color: #fff; border: none; border-radius: 4px; cursor: pointer;">{{ __('Log in') }}</button>
+                        style="padding: 12px 16px; background-color: #8495f5; color: #fff; border: none; border-radius: 4px; cursor: pointer;">{{ __('Log in') }}</button>
                 </div>
                 <div class="flex items-center justify-between">
-                    @if (Route::has('password.request'))
-                        <a class="text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                            {{ __('Forgot your password?') }}
-                        </a>
-                    @endif
                     <a class="text-sm text-gray-600 hover:text-gray-900" href="/register">
                         {{ __('Dont have account?') }}
                     </a>

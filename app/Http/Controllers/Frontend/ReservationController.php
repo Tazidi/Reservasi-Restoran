@@ -10,6 +10,7 @@ use App\Rules\DateBetween;
 use App\Rules\TimeBetween;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use DateTime;
 
 class ReservationController extends Controller
 {
@@ -44,17 +45,27 @@ class ReservationController extends Controller
 
         return to_route('reservations.step.two');
     }
+
     public function stepTwo(Request $request)
     {
         $reservation = $request->session()->get('reservation');
         $res_table_ids = Reservation::orderBy('res_date')->get()->filter(function ($value) use ($reservation) {
-            return $value->res_date->format('Y-m-d') == $reservation->res_date->format('Y-m-d');
+            $resDate = is_string($value->res_date) ? Carbon::parse($value->res_date) : $value->res_date;
+
+            return $resDate->format('Y-m-d') == optional($reservation->res_date)->format('Y-m-d');
         })->pluck('table_id');
+
         $tables = Table::where('status', TableStatus::Avalaiable)
             ->where('guest_number', '>=', $reservation->guest_number)
-            ->whereNotIn('id', $res_table_ids)->get();
+            ->whereNotIn('id', $res_table_ids)
+            ->get();
+
         return view('reservations.step-two', compact('reservation', 'tables'));
     }
+
+
+
+
 
     public function storeStepTwo(Request $request)
     {

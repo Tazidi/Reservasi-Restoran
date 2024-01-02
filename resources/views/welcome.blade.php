@@ -1,20 +1,15 @@
-<x-guest-layout>
+<x-app-layout>
     <!-- Main Hero Content -->
     <div class="container max-w-lg px-4 py-32 mx-auto text-left bg-center bg-no-repeat bg-cover md:max-w-none md:text-center"
-        style="background-image: url('https://cdn.pixabay.com/photo/2016/11/18/14/39/beans-1834984_960_720.jpg')">
+        style="background-image: url('https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_1280.jpg">
         <h1
-            class="font-mono text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-yellow-500 md:text-center sm:leading-none lg:text-5xl">
-            <span class="inline md:block">Welcome To MeatGuest</span>
+            class="font-mono text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100 md:text-center sm:leading-none lg:text-5xl">
+            <span class="inline md:block">Welcome To ARKI Restaurant</span>
         </h1>
-        <div class="mx-auto mt-2 text-green-50 md:text-center lg:text-lg">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta voluptatem ab necessitatibus illo
-            praesentium
-            culpa excepturi quae commodi quaerat,
-        </div>
         <div class="flex flex-col items-center mt-12 text-center">
             <span class="relative inline-flex w-full md:w-auto">
                 <a href="{{ route('reservations.step.one') }}" type="button"
-                    class="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-6 text-white bg-green-600 rounded-full lg:w-full md:w-auto hover:bg-green-500 focus:outline-none">
+                    class="inline-flex items-center justify-center px-6 py-2 text-base font-bold leading-6 text-white bg-blue-600 rounded-full lg:w-full md:w-auto hover:bg-blue-500 focus:outline-none">
                     Make Your Reservation
                 </a>
         </div>
@@ -30,18 +25,20 @@
       > -->
                         <h3 class="text-xl">OUR STORY
                         </h3>
-                        <h2 class="text-4xl text-green-600">Welcome</h2>
+                        <h2 class="text-4xl text-blue-600">Welcome</h2>
                         <!-- </h1> -->
                         <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus nemo incidunt
-                            praesentium, ipsum
-                            culpa minus eveniet, id nesciunt excepturi sit voluptate repudiandae. Explicabo, incidunt
-                            quia.
-                            Repellendus mollitia quaerat est voluptas!
+                            Welcome to our restaurant, where each dish tells its own unique tale.
+                            Born out of our passion to deliver an unforgettable culinary experience, 
+                            this restaurant is a labor of love and dedication to the art of gastronomy.
+                            We believe that every dish is a blend of creativity, high-quality fresh ingredients,
+                            and skillful hands crafted with care. With each bite, we invite you to embark on our culinary journey, 
+                            exploring authentic flavors and bringing the warmth to your table.
+                            Enjoy the narrative etched into each serving, and let's celebrate the deliciousness of life together.
                         </p>
                         <div class="relative flex">
-                            <a href="#"
-                                class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-green-600 rounded-md sm:mb-0 hover:bg-green-700 sm:w-auto">
+                            <a href="/menus"
+                                class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-blue-600 rounded-md sm:mb-0 hover:bg-blue-700 sm:w-auto">
                                 Our Menu
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -62,90 +59,85 @@
         </div>
     </section>
     @if (is_array($specials))
-        <section class="mt-8 bg-white">
-            <div class="mt-4 text-center">
-                <h3 class="text-2xl font-bold">Our Menu</h3>
-                <h2
-                    class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
-                    TODAY'S SPECIALITY</h2>
-            </div>
-            <div class="container w-full px-5 py-6 mx-auto">
-                <div class="grid lg:grid-cols-4 gap-y-6">
-                    @foreach ($specials->menus as $menu)
-                        <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
-                            <img class="w-full h-48" src="{{ Storage::url($menu->image) }}" alt="Image" />
-                            <div class="px-6 py-4">
-                                <h4 class="mb-3 text-xl font-semibold tracking-tight text-green-600 uppercase">
-                                    {{ $menu->name }}</h4>
-                                <p class="leading-normal text-gray-700">{{ $menu->description }}.</p>
-                            </div>
-                            <div class="flex items-center justify-between p-4">
-                                <span class="text-xl text-green-600">${{ $menu->price }}</span>
-                            </div>
+    <section class="mt-8 bg-white">
+        <div class="mt-4 text-center">
+            <h3 class="text-2xl font-bold">Our Menu</h3>
+            <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-500">
+                TODAY'S SPECIALITY</h2>
+        </div>
+        <div class="container w-full px-5 py-6 mx-auto">
+            <div class="grid lg:grid-cols-4 gap-y-6">
+                @foreach ($specials->menus as $menu)
+                    <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
+                        <img class="w-full h-48" src="{{ Storage::url($menu->image) }}" alt="Image" />
+                        <div class="px-6 py-4">
+                            <h4 class="mb-3 text-xl font-semibold tracking-tight text-blue-600 uppercase">
+                                {{ $menu->name }}</h4>
+                            <p class="leading-normal text-gray-700">{{ $menu->description }}.</p>
                         </div>
-                    @endforeach
-                </div>
+                        <div class="flex items-center justify-between p-4">
+                            <span class="text-xl text-blue-600">${{ $menu->price }}</span>
+                        </div>
+                    </div>
+                @endforeach
             </div>
-        </section>
+        </div>
+    </section>
     @endif
     <section class="pt-4 pb-12 bg-gray-800">
         <div class="my-16 text-center">
-            <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+            <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-500">
                 Testimonial </h2>
-            <p class="text-xl text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. soluta sapient</p>
+            <p class="text-xl text-white">from our beloved customers</p>
         </div>
         <div class="grid gap-2 lg:grid-cols-3">
             <div class="max-w-md p-4 bg-white rounded-lg shadow-lg">
                 <div class="flex justify-center -mt-16 md:justify-end">
-                    <img class="object-cover w-20 h-20 border-2 border-green-500 rounded-full"
+                    <img class="object-cover w-20 h-20 border-2 border-blue-500 rounded-full"
                         src="https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80">
                 </div>
                 <div>
                     <h2 class="text-3xl font-semibold text-gray-800">Food</h2>
-                    <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolores
-                        deserunt
-                        ea doloremque natus error, rerum quas odio quaerat nam ex commodi hic, suscipit in a veritatis
-                        pariatur
-                        minus consequuntur!</p>
+                    <p class="mt-2 text-gray-600">"Absolutely delightful! The moment I stepped into this restaurant, 
+                        I was greeted by a warm atmosphere and a menu that spoke volumes about their dedication to culinary excellence. 
+                        Each dish I tried was a symphony of flavors, beautifully plated and made with the finest ingredients. 
+                        A true gem for food enthusiasts!"</p>
                 </div>
                 <div class="flex justify-end mt-4">
-                    <a href="#" class="text-xl font-medium text-green-500">John Doe</a>
+                    <a class="text-xl font-medium text-blue-500">David M. - Food Enthusiast</a>
                 </div>
             </div>
             <div class="max-w-md p-4 bg-white rounded-lg shadow-lg">
                 <div class="flex justify-center -mt-16 md:justify-end">
-                    <img class="object-cover w-20 h-20 border-2 border-green-500 rounded-full"
+                    <img class="object-cover w-20 h-20 border-2 border-blue-500 rounded-full"
                         src="https://cdn.pixabay.com/photo/2018/01/04/21/15/young-3061652__340.jpg">
                 </div>
                 <div>
                     <h2 class="text-3xl font-semibold text-gray-800">Food</h2>
-                    <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolores
-                        deserunt
-                        ea doloremque natus error, rerum quas odio quaerat nam ex commodi hic, suscipit in a veritatis
-                        pariatur
-                        minus consequuntur!</p>
+                    <p class="mt-2 text-gray-600">"As a regular customer, I can confidently say that this restaurant never fails to impress. 
+                        The consistency in taste, the friendly staff, and the cozy ambiance make it my go-to dining spot. 
+                        From casual lunches to special celebrations, this place has become a second home for me. Highly recommended!"</p>
                 </div>
                 <div class="flex justify-end mt-4">
-                    <a href="#" class="text-xl font-medium text-green-500">John Doe</a>
+                    <a href="#" class="text-xl font-medium text-blue-500">Sarah J. - Regular Patron</a>
                 </div>
             </div>
             <div class="max-w-md p-4 bg-white rounded-lg shadow-lg">
                 <div class="flex justify-center -mt-16 md:justify-end">
-                    <img class="object-cover w-20 h-20 border-2 border-green-500 rounded-full"
+                    <img class="object-cover w-20 h-20 border-2 border-blue-500 rounded-full"
                         src="https://cdn.pixabay.com/photo/2018/01/18/17/48/purchase-3090818__340.jpg">
                 </div>
                 <div>
                     <h2 class="text-3xl font-semibold text-gray-800">Food</h2>
-                    <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolores
-                        deserunt
-                        ea doloremque natus error, rerum quas odio quaerat nam ex commodi hic, suscipit in a veritatis
-                        pariatur
-                        minus consequuntur!</p>
+                    <p class="mt-2 text-gray-600">"Exploring the diverse and creative menu of this restaurant has been a culinary adventure like no other. 
+                        The chefs here are true artists, pushing the boundaries of flavor combinations. 
+                        I appreciate the commitment to using fresh, local ingredients, and each visit is a new discovery. 
+                        An absolute must-visit for anyone who loves to savor unique and innovative dishes!"</p>
                 </div>
                 <div class="flex justify-end mt-4">
-                    <a href="#" class="text-xl font-medium text-green-500">John Doe</a>
+                    <a href="#" class="text-xl font-medium text-blue-500">Emily R. - Culinary Adventurer</a>
                 </div>
             </div>
         </div>
     </section>
-</x-guest-layout>
+  </x-app-layout>

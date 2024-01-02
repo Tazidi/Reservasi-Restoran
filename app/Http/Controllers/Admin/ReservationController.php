@@ -43,19 +43,26 @@ class ReservationController extends Controller
     public function store(ReservationStoreRequest $request)
     {
         $table = Table::findOrFail($request->table_id);
+
         if ($request->guest_number > $table->guest_number) {
-            return back()->with('warning', 'Please choose the table base on guests.');
+            return back()->with('warning', 'Please choose the table based on guests.');
         }
+
         $request_date = Carbon::parse($request->res_date);
+
         foreach ($table->reservations as $res) {
-            if ($res->res_date->format('Y-m-d') == $request_date->format('Y-m-d')) {
+            $resDate = is_string($res->res_date) ? Carbon::parse($res->res_date) : $res->res_date;
+
+            if ($resDate->format('Y-m-d') == $request_date->format('Y-m-d')) {
                 return back()->with('warning', 'This table is reserved for this date.');
             }
         }
+
         Reservation::create($request->validated());
 
-        return to_route('admin.reservations.index')->with('success', 'Reservation created successfully.');
+        return redirect()->route('admin.reservations.index')->with('success', 'Reservation created successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -95,6 +102,7 @@ class ReservationController extends Controller
         }
         $request_date = Carbon::parse($request->res_date);
         $reservations = $table->reservations()->where('id', '!=', $reservation->id)->get();
+        // dd($reservation->table_id);
         foreach ($reservations as $res) {
             if ($res->res_date->format('Y-m-d') == $request_date->format('Y-m-d')) {
                 return back()->with('warning', 'This table is reserved for this date.');
@@ -115,6 +123,6 @@ class ReservationController extends Controller
     {
         $reservation->delete();
 
-        return to_route('admin.reservations.index')->with('warning', 'Reservation deleted successfully.');
+        return to_route('admin.reservations.index')->with('danger', 'Reservation deleted successfully.');
     }
 }
