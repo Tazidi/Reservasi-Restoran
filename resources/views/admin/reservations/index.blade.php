@@ -16,26 +16,26 @@
                     <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
                         <div class="overflow-hidden shadow-md sm:rounded-lg">
                             <table class="min-w-full">
-                                <thead class="bg-gray-50 dark:bg-gray-700">
+                                <thead class="bg-gray-200">
                                     <tr>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                             Name
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                             Email
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                             Date
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                             Table
                                         </th>
                                         <th scope="col"
-                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                            class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                             Guests
                                         </th>
                                         <th scope="col" class="relative py-3 px-6">
@@ -45,31 +45,31 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($reservations as $reservation)
-                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <tr class="bg-white border-b">
                                             <td
-                                                class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
                                                 {{ $reservation->first_name }} {{ $reservation->last_name }}
                                             </td>
                                             <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
                                                 {{ $reservation->email }}
                                             </td>
                                             <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
                                                 {{ $reservation->res_date }}
                                             </td>
                                             <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
                                                 {{ $reservation->table->name }}
                                             </td>
                                             <td
-                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                                class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap">
                                                 {{ $reservation->guest_number }}
                                             </td>
                                             <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
                                                 <div class="flex space-x-2">
                                                     <a href="{{ route('admin.reservations.edit', $reservation->id) }}"
-                                                        class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg  text-white">Edit</a>
+                                                        class="px-4 py-2 bg-green-500 hover:bg-green-700 rounded-lg text-white">Edit</a>
                                                     <form
                                                         class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
                                                         method="POST"
